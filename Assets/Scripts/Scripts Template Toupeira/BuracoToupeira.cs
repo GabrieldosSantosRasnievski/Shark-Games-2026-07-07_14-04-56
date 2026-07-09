@@ -2,82 +2,82 @@ using UnityEngine;
 
 public class BuracoToupeira : MonoBehaviour
 {
-    // Variável que define pontos por clique na toupeira
+    // Variï¿½vel que define pontos por clique na toupeira
     public int PontosPorToupeira;
 
-    // Variável que define velocidade que a toupeira sai e volta da toca
-    public float VelocidadeToupeira = 2;
+    // Variï¿½vel que define velocidade que a toupeira sai e volta da toca
+    public float VelocidadeToupeira = 2f;
 
     // Referencia do Transform da toupeira
     public RectTransform Toupeira;
 
 
-    // Variável privada para definir se Toupeira está saindo da toca
+    // Variï¿½vel privada para definir se Toupeira estï¿½ saindo da toca
     bool MostrandoToupeira = false;
 
-    // Variável privada para definir se Toupeira está entrnado na toca
+    // Variï¿½vel privada para definir se Toupeira estï¿½ entrnado na toca
     bool EscondendoToupeira = false;
 
-    // Variável privada para movimentação da Toupeira
-    float valorFinalY = 0;
+    // Variï¿½vel privada para movimentaï¿½ï¿½o da Toupeira
+    float valorFinalY = 0f;
 
 
 
-    // É chamado 1 vez por frame
+    // ï¿½ chamado 1 vez por frame
     void Update()
     {
-        // Checa se a variável Mostrando toupera é verdadeira para iniciar movimentação de mostrar Toupeira
+        // Checa se a variï¿½vel Mostrando toupera ï¿½ verdadeira para iniciar movimentaï¿½ï¿½o de mostrar Toupeira
         if (MostrandoToupeira)
         {
-            // Checa se a posição Y da toupeira ainda não alcançou o limite final
-            if (Toupeira.anchoredPosition.y < -20)
+            // Checa se a posiï¿½ï¿½o Y da toupeira ainda nï¿½o alcanï¿½ou o limite final
+            if (Toupeira.anchoredPosition.y < -5.9)
             {
-                // Define valor da variável como soma da VelocidadeToupeira e posição Y atual da Toupeira
+                // Define valor da variï¿½vel como soma da VelocidadeToupeira e posiï¿½ï¿½o Y atual da Toupeira
                 valorFinalY = Toupeira.anchoredPosition.y + VelocidadeToupeira;
 
-                // Checa se a posição Y final da será maior que o limite...
-                if (valorFinalY > -20)
+                // Checa se a posiï¿½ï¿½o Y final da serï¿½ maior que o limite...
+                if (valorFinalY > -5.9)
                 {
-                    // Ajusta valor da variável para o limite
-                    valorFinalY = -20;
+                    // Ajusta valor da variï¿½vel para o limite
+                    valorFinalY = -5.9f;
                 }
 
-                // Define posição Y da Toupeira igual ao valor da variável valorFinalY
+                // Define posiï¿½ï¿½o Y da Toupeira igual ao valor da variï¿½vel valorFinalY
                 Toupeira.anchoredPosition = new Vector2(Toupeira.anchoredPosition.x, valorFinalY);
             }
         }
 
 
-        // Checa se a variável Escondendo toupera é verdadeira para iniciar movimentação de esconder Toupeira
+        // Checa se a variï¿½vel Escondendo toupera ï¿½ verdadeira para iniciar movimentaï¿½ï¿½o de esconder Toupeira
         if (EscondendoToupeira)
         {
-            // Checa se a posição Y da toupeira ainda não alcançou o limite final
-            if (Toupeira.anchoredPosition.y > -80)
+            // Checa se a posiï¿½ï¿½o Y da toupeira ainda nï¿½o alcanï¿½ou o limite final
+            if (Toupeira.anchoredPosition.y > -83.7f)
             {
-                // Define valor da variável como subtração da VelocidadeToupeira e posição Y atual da Toupeira
+                // Define valor da variï¿½vel como subtraï¿½ï¿½o da VelocidadeToupeira e posiï¿½ï¿½o Y atual da Toupeira
                 valorFinalY = Toupeira.anchoredPosition.y - VelocidadeToupeira;
 
-                // Checa se a posição Y final da toupeira é menor que o limite...
-                if (valorFinalY < -80)
+                // Checa se a posiï¿½ï¿½o Y final da toupeira ï¿½ menor que o limite...
+                if (valorFinalY < -83.7f)
                 {
-                    // Ajusta valor da variável para o limite
-                    valorFinalY = -80;
+                    // Ajusta valor da variï¿½vel para o limite
+                    valorFinalY = -83.7f;
                 }
 
-                // Define posição Y da Toupeira igual ao valor da variável valorFinalY
+                // Define posiï¿½ï¿½o Y da Toupeira igual ao valor da variï¿½vel valorFinalY
                 Toupeira.anchoredPosition = new Vector2(Toupeira.anchoredPosition.x, valorFinalY);
             }
         }
     }
 
-    // Função pública para iniciar movimentação de Mostrar Toupeira
+    // Funï¿½ï¿½o pï¿½blica para iniciar movimentaï¿½ï¿½o de Mostrar Toupeira
     public void MostrarToupeira()
     {
         MostrandoToupeira = true;
         EscondendoToupeira = false;
     }
 
-    // Função pública para iniciar movimentação de Esconder Toupeira
+    // Funï¿½ï¿½o pï¿½blica para iniciar movimentaï¿½ï¿½o de Esconder Toupeira
     public void EsconderToupeira()
     {
         MostrandoToupeira = false;
@@ -85,16 +85,16 @@ public class BuracoToupeira : MonoBehaviour
     }
 
 
-    // Função pública eventos ao clicar na Toupeira
+    // Funï¿½ï¿½o pï¿½blica eventos ao clicar na Toupeira
     public void ClicarNaToupeira()
     {
         // Aviso no console
         Debug.Log("ClicarNaToupeira");
 
-        // Chamar função de EsconderToupeira()
+        // Chamar funï¿½ï¿½o de EsconderToupeira()
         EsconderToupeira();
 
-        // Chamar função de AdicionarPontos do ContadorDePontos da cena
+        // Chamar funï¿½ï¿½o de AdicionarPontos do ContadorDePontos da cena
         ContadorDePonto.Instance.AdicionarPontos(PontosPorToupeira);
     }
 }

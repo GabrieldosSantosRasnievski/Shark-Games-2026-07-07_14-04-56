@@ -7,10 +7,10 @@ public class ControladorBuracos : MonoBehaviour
     public List<BuracoToupeira> BuracosToupeira;
 
     // Variável publica para definir tempo entre Toupeiras
-    public float DelayEntreToupeiras = 1;
+    public float DelayEntreToupeiras = 0.67f;
 
     // Variável publica para definir tempo que Toupeira fica amostra
-    public float TempoDePermanenciaToupeira = 1;
+    public float TempoDePermanenciaToupeira = 1f;
 
 
     // Variável privada para definir se já tem uma toupeira amostra
